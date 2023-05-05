@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trang xinh gái cute có yêu anh không?</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-size: 20px;
+			text-align: center;
+			margin-top: 50px;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 10px;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+		#no {
+			color: red;
+			font-weight: bold;
+			font-size: 50px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.heart {
+          
+    position: fixed;
+    background-color: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: heart 2s ease-in-out;
+    z-index: 99999;
+}
+
+		
+		@keyframes heart {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.5);
+			}
+			100% {
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Trang xinh gái cute có yêu anh không?</h1>
+	<button id="yes">Có</button>
+	<button id="no">Không</button>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#yes").click(function() {
+    alert("Anh cũng yêu em");
+    for (let i = 0; i < 1000; i++) {
+        const heart = $("<div class='heart'>❤️</div>").appendTo("body");
+        const x = Math.floor(Math.random() * window.innerWidth);
+        const y = Math.floor(Math.random() * window.innerHeight);
+        heart.css({left: x, top: y});  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        heart.css("background-color", "#" + randomColor);
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
+    }
+});
+
+			const noButton = $("#no");
+			let intervalId;
+			noButton.on("mouseover", () => {
+				intervalId = setInterval(() => {
+					const randomX = Math.floor(Math.random() * window.innerWidth);
+					const randomY = Math.floor(Math.random() * window.innerHeight);
+					noButton.css({left: randomX, top: randomY});
+				}, 100);
+			});
+			noButton.on("mouseout", () => {
+				clearInterval(intervalId);
+			});
+		});
+	</script>
+</body>
+</html>
